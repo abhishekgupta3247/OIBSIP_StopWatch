@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button buttonStart, buttonStop, buttonReset;
 
     int seconds = 0;
+    boolean isRunning;
 
 
     @Override
@@ -27,26 +28,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonStop = findViewById(R.id.btnStop);
         buttonReset = findViewById(R.id.btnReset);
 
-        buttonStart.setOnClickListener(this);
-        buttonStop.setOnClickListener(this);
-        buttonReset.setOnClickListener(this);
+        startTimer();
+
+        buttonStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isRunning = true;
+            }
+        });
+        buttonStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isRunning = false;
+            }
+        });
+        buttonReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isRunning = false;
+                seconds = 0;
+            }
+        });
+
+
     }
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.btnStart:{
-                startTimer();
-
-            }
-            case R.id.btnStop:{
-                break;
-            }
-            case R.id.btnReset:{
-                break;
-            }
-
-        }
+//        switch(v.getId()){
+//            case R.id.btnStart:{
+//                isRunning = true;
+//                startTimer();
+//
+//            }
+//            case R.id.btnStop:{
+//                startTimer();
+//                isRunning = false;
+//            }
+//            case R.id.btnReset:{
+//                startTimer();
+//                isRunning = false;
+//                seconds = 0;
+//            }
+//
+//        }
     }
 
     public void startTimer(){
@@ -58,7 +83,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int m = seconds/60;
                 int h = m/60;
 
-                seconds++;
+                if(isRunning)
+                {
+                    seconds++;
+                }
+
                 String formatString = String.format(Locale.getDefault(), "%02d:%02d:%02d", h, m, s);
                 timerTv.setText(formatString);
                 handler.postDelayed(this,1000);
