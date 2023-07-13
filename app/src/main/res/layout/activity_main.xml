@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="@string/start"
             android:layout_margin="21dp"
-            android:onClick="onClickStart"
+
             />
 
 
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:text="@string/stop"
             android:layout_margin="21dp"
-            android:onClick="onClickStop"
+
             />
 
 
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:text="@string/reset"
             android:layout_margin="21dp"
-            android:onClick="onClickReset"
+
             />
 
     </LinearLayout>
