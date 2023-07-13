@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity{
 
     TextView timerTv;
     Button buttonStart, buttonStop, buttonReset;
@@ -53,26 +53,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onClick(View v) {
-//        switch(v.getId()){
-//            case R.id.btnStart:{
-//                isRunning = true;
-//                startTimer();
-//
-//            }
-//            case R.id.btnStop:{
-//                startTimer();
-//                isRunning = false;
-//            }
-//            case R.id.btnReset:{
-//                startTimer();
-//                isRunning = false;
-//                seconds = 0;
-//            }
-//
-//        }
-    }
+//    @Override
+//    public void onClick(View v) {
+////        switch(v.getId()){
+////            case R.id.btnStart:{
+////                isRunning = true;
+////                startTimer();
+////
+////            }
+////            case R.id.btnStop:{
+////                startTimer();
+////                isRunning = false;
+////            }
+////            case R.id.btnReset:{
+////                startTimer();
+////                isRunning = false;
+////                seconds = 0;
+////            }
+////
+////        }
+//    }
 
     public void startTimer(){
         Handler handler = new Handler();
