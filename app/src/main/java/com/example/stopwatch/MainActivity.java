@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity{
     TextView timerTv;
     Button buttonStart, buttonStop, buttonReset;
 
-    int seconds = 0;
+    int milliseconds = 0;
     boolean isRunning;
 
 
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 isRunning = false;
-                seconds = 0;
+                milliseconds = 0;
             }
         });
 
@@ -79,18 +79,19 @@ public class MainActivity extends AppCompatActivity{
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                int s = seconds%60;
-                int m = seconds/60;
-                int h = m/60;
+                int ms = milliseconds%100;
+                int secs = (milliseconds/60)%60;
+                int mins = milliseconds/3600;
+
 
                 if(isRunning)
                 {
-                    seconds++;
+                    milliseconds++;
                 }
 
-                String formatString = String.format(Locale.getDefault(), "%02d:%02d:%02d", h, m, s);
+                String formatString = String.format(Locale.getDefault(), "%02d:%02d:%02d", mins, secs, ms);
                 timerTv.setText(formatString);
-                handler.postDelayed(this,1000);
+                handler.postDelayed(this,10);
             }
         };
         handler.post(runnable);
